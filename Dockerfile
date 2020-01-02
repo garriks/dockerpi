@@ -28,6 +28,8 @@ RUN apt-get -y install python build-essential libglib2.0-dev libpixman-1-dev
 RUN apt-get -y install libfdt-dev zlib1g-dev
 # Not required or specified anywhere but supress build warnings
 RUN apt-get -y install flex bison
+RUN sudo apt-get install -y conntrack
+RUN sudo apt-get install tcpdump 
 RUN "qemu-${QEMU_VERSION}/configure" --static --target-list=arm-softmmu
 RUN make -j$(nproc)
 
